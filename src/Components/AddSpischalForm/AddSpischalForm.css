@@ -1,0 +1,43 @@
+.Upload-Area
+{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 30px;
+}
+.Upload-Area img
+{
+
+    margin-right: 10px;
+}
+.Upload-Area .text-Area
+{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.contant-fq
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 30px auto;
+}
+.contant-fq .HJ_form-image{  
+    width: 100%;
+    height: 24.8rem;
+    border-radius: 1.01em;
+    background: #FF8500;
+}
+.HJ_form-image img{
+    border-radius: 1.01em;
+    width: 100%;
+}
+.contant-fq .HJ_new{
+    width: 6.4rem;
+    position: absolute;
+    left:42%;
+    top: 34%; 
+}

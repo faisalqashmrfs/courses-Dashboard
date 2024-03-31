@@ -1,0 +1,566 @@
+.TopBar
+{
+    width: 100%;
+}
+.TopBar nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 80px;
+}
+.TopBar nav .navigation 
+{
+    width: 100%;
+    overflow-x: hidden;
+}
+.TopBar nav .indexClass0
+{
+    width: 180vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    transition: .6s;
+    transform: translateX(-0vw);
+}
+.TopBar nav .indexClass1
+{
+    width: 180vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    transition: .6s;
+    transform: translateX(-30vw);
+}
+.TopBar nav .indexClass2
+{
+    width: 180vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    transition: .6s;
+    transform: translateX(-60vw);
+}
+.TopBar nav .indexClass3
+{
+    width: 180vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    transition: .6s;
+    transform: translateX(-90vw);
+}
+.TopBar nav .indexClass4
+{
+    width: 180vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    transition: .6s;
+    transform: translateX(-120vw);
+}
+.TopBar nav .indexClass5
+{
+    width: 180vw;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    transition: .6s;
+    transform: translateX(-150vw);
+}
+.TopBar nav li
+{
+    width: 30vw;
+    text-align: center;
+    position: relative;
+    color: #282828;
+    height: 30px;
+}
+
+.TopBar nav li span
+{
+    cursor: pointer;
+}
+.TopBar .FQ-disapleButton
+{
+    z-index: -1;
+    opacity: .5;
+}
+.TopBar .ChosingCategory span
+{
+    color: black;
+    font-weight: 600;
+}
+.TopBar .ChosingCategory span
+{
+    position: relative;
+    
+}
+.TopBar .ChosingCategory span::after
+{
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 2px;
+    background-color: orange;  
+    right: 0;
+    bottom: 0px; 
+}
+.ForBlur
+{
+    filter: blur(5px);
+    position: relative;
+}
+
+.loader-spinner
+{
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+.loader-spinnerOf
+{
+    display: none;
+}
+.LeaveFather
+{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.589);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+}
+.Leave
+{
+    width: 529px;
+    height: 214px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #FF8500;
+    text-align: center;
+    z-index: 10;
+    transition: .3s;
+    opacity: 1;
+
+}
+.Leaveoff
+{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #FF8500;
+    text-align: center;
+    z-index: -1;
+    transition: .3s;
+    opacity: 0;
+}
+.Leave h3,.Leaveoff h3
+{
+    width: max-content;
+    margin: 40px auto 60px auto;
+}
+.Leave div,.Leaveoff div
+{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+.Leave button,.Leaveoff button
+{
+    width: 173px;
+    height: 46px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.Leave .yes,.Leaveoff .yes
+{
+    color: #FF8500;
+    border: 1px solid #FF8500;
+    background-color: transparent;
+}
+.Leave .no,.Leaveoff .no
+{
+    background-color: #FF8500;
+    border: 1px solid #FF8500;
+    color: white;
+}
+
+.Hero-section .left-arwo, .Hero-section .right-arwo
+{
+    cursor: pointer;
+}
+
+.CategoryData .list
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.CategoryData .list a
+{
+    text-decoration: none;
+    color: black;
+}
+.CategoryData .list .item
+{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.8px;
+    text-align: right;
+}
+.CategoryData .list .Chosingitem
+{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.8px;
+    text-align: right;
+    position: relative;
+    transition: .2s;
+}
+.CategoryData .list span
+{
+    cursor: pointer;
+}
+.CategoryData .list .Chosingitem span::after
+{
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 2px;
+    background-color: #FF8500;
+    right: 0;
+    bottom: 0;
+}
+.FillteringArea
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    margin-top: 30px;
+}
+.FillteringArea .FillterButton
+{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: center;
+    width: 124px;
+    height: 37px;
+    padding: 10px 20px 10px 15px;
+    border-radius: 8px;
+    border: 1px 0px 0px 0px;
+    border: 1px solid rgba(255, 133, 0, 1);
+    background-color: transparent;
+    cursor: pointer;
+}
+.FillteringArea .imgDefaulter
+{
+    margin-right: 5px;
+    transform: rotatex(0deg);
+    transition: .6s;
+}
+.FillteringArea .imgDefaulterON
+{
+    margin-right: 5px;
+    transform: rotatex(180deg);
+    transition: .6s;
+}
+.FillteringArea .FilteringBox
+{
+    width: 544px;
+    height: 42px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 61px;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.15);
+    transition: .3s;
+    z-index: 100;
+    background-color: white;
+}
+.FillteringArea .FilteringBoxOff
+{
+    width: 1044px;
+    height: 142px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    position: absolute;
+    top: -100px;
+    transition: 0s;
+    z-index: -10;
+    transition: .3s;
+}
+.FillteringArea .FilteringBox button , .FillteringArea .FilteringBoxOff button
+{
+    width: 51px;
+    height: 22px;
+    border-radius: 4px;
+    background: rgba(255, 133, 0, 1);
+    border: none;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+.FillteringArea .FilteringBox p ,.FillteringArea .FilteringBoxOff p
+{
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: right;
+    color: rgba(157, 157, 157, 1);
+}
+.FillteringArea select
+{
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: right;
+    color: rgba(157, 157, 157, 1);
+}
+.FillteringArea .AddVideo
+{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: center;
+    width: 110px;
+    height: 37px;
+    border-radius: 8px;
+    border: none;  
+    background: rgba(255, 133, 0, 1);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1250px)
+{
+    .TopBar nav .indexClass0
+    {
+        width: 240vw;
+    }
+    .TopBar nav .indexClass1
+    {
+        width: 240vw;
+        transform: translateX(-40vw);
+    }
+    .TopBar nav .indexClass2
+    {
+        width: 240vw;
+        transform: translateX(-80vw);
+    }
+    .TopBar nav .indexClass3
+    {
+        width: 240vw;
+        transform: translateX(-120vw);
+    }
+    .TopBar nav .indexClass4
+    {
+        width: 240vw;
+        transform: translateX(-160vw);
+    }
+    .TopBar nav .indexClass5
+    {
+        width: 240vw;
+        transform: translateX(-200vw);
+    }
+    .TopBar nav li
+    {
+        width: 40vw;
+        height: 35px;
+    }
+}
+@media (max-width:920px)
+{
+    .TopBar nav .indexClass0
+    {
+        width: 480vw;
+    }
+    .TopBar nav .indexClass1
+    {
+        width: 480vw;
+        transform: translateX(-80vw);
+    }
+    .TopBar nav .indexClass2
+    {
+        width: 480vw;
+        transform: translateX(-160vw);
+    }
+    .TopBar nav .indexClass3
+    {
+        width: 480vw;
+        transform: translateX(-240vw);
+    }
+    .TopBar nav .indexClass4
+    {
+        width: 480vw;
+        transform: translateX(-320vw);
+    }
+    .TopBar nav .indexClass5
+    {
+        width: 480vw;
+        transform: translateX(-400vw);
+    }
+    .TopBar nav li
+    {
+        width: 80vw;
+        font-size: 16px;
+    }
+}
+
+@media (max-width:700px)
+{
+    .TopBar nav
+    {
+        padding: 30px 30px ;
+    }
+    .TopBar nav .navigation 
+    {
+        width: 350px;
+        margin: 0 auto;
+    }
+    .TopBar nav .indexClass0
+    {
+        width: 2100px;
+    }
+    .TopBar nav .indexClass1
+    {
+        width: 2100px;
+        transform: translateX(-350px);
+    }
+    .TopBar nav .indexClass2
+    {
+        width: 2100px;
+        transform: translateX(-700px);
+    }
+    .TopBar nav .indexClass3
+    {
+        width: 2100px;
+        transform: translateX(-1050px);
+    }
+    .TopBar nav .indexClass4
+    {
+        width: 2100px;
+        transform: translateX(-1400px);
+    }
+    .TopBar nav .indexClass5
+    {
+        width: 2100px;
+        transform: translateX(-1750px);
+    }
+    .TopBar nav li
+    {
+        width: 350px;
+        text-align: center;
+    }
+    .Leave
+    {
+        width: 300px;
+        height: 170px;
+    }
+    .Leave h3
+    {   
+        margin: 30px auto 40px auto;
+    }
+    .Leave div
+    {
+        width: 90%;
+        margin: 0px auto;
+    }
+    .Leave button
+    {
+        width: 123px;
+        height: 36px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+}
+@media (max-width:450px)
+{
+    .TopBar nav
+    {
+        padding: 30px 5px ;
+    }
+    .TopBar nav .navigation 
+    {
+        width: 310px;
+        margin: 0 auto;
+    }
+    .TopBar nav .indexClass0
+    {
+        width: 1860px;
+    }
+    .TopBar nav .indexClass1
+    {
+        width: 1860px;
+        transform: translateX(-310px);
+    }
+    .TopBar nav .indexClass2
+    {
+        width: 1860px;
+        transform: translateX(-620px);
+    }
+    .TopBar nav .indexClass3
+    {
+        width: 1860px;
+        transform: translateX(-930px);
+    }
+    .TopBar nav .indexClass4
+    {
+        width: 1860px;
+        transform: translateX(-1240px);
+    }
+    .TopBar nav .indexClass5
+    {
+        width: 1860px;
+        transform: translateX(-1560px);
+    }
+    .TopBar nav li
+    {
+        width: 310px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,22 @@
+.ADD-videoNav
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 80px;
+}
+.ADD-videoNav .side_1
+{
+    display: flex;
+    align-items: center;
+}
+.ADD-videoNav .side_2
+{
+    display: flex;
+    align-items: center;
+}
+.ADD-videoNav .side_2 h3
+{
+    font-weight: 400 ;
+    margin: -7px 10px  0 0;
+}

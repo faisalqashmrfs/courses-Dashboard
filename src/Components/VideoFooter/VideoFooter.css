@@ -1,0 +1,61 @@
+.Video-Footer
+{
+    width: 100%;
+    height: 182px;
+    background-image: url(./../../assets/Images/Footer.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    transition: 1s;
+}
+.Video-Footer .contant
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 80px;
+    transition: 1s;
+}
+.Video-Footer .IconsFather 
+{
+    display: flex;
+    transition: 1s;
+}
+.Video-Footer .IconsFather div
+{
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 8px;
+}
+.Video-Footer .contant p
+{
+    color: white;
+}
+
+@media (max-width:680px)
+{
+    .Video-Footer
+    {
+        background-position: center;
+    }
+    .Video-Footer .contant
+    {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+    }
+    .Video-Footer .contant p
+    {
+       font-size: 10px;
+        margin-top: 10px;
+    }
+}
