@@ -8,7 +8,7 @@ export default function AddSpischalli() {
         <section>
                 <nav className='ADD-videoNav'>
                     <div className='side_1'>
-                        <Link to={'/MainPage'}>
+                        <Link to={'/SpecializationsPage'}>
                             <img className='Secrsh' src={back} alt="Secrsh" />
                         </Link>
                     </div>

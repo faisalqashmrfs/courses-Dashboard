@@ -35,7 +35,9 @@ const ImageDropZone = ({onChildValueChange}) => {
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         className='HJ_form-image'> 
-         <img src={image}   onLoad={handleImageLoad} alt='' style={{ width: '100%', height: '100%' }} />
+         <img src={image}   onLoad={handleImageLoad} alt=''
+          style={{ width: '100%', height: '400px'}}
+           />
          <img  className={imageVisible ? 'HJ_new' : 'hidden'} src={new_article} alt="new article" />  
     </div>
   )

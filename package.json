@@ -1,4 +1,5 @@
 {
+  "homepage": "https://faisalqashmrfs.github.io/courses-Dashboard/",
   "name": "dahbord-video-platform",
   "private": true,
   "version": "0.0.0",
@@ -6,14 +7,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
-    "react-hook-form": "^7.51.1",
+    "react-hook-form": "^7.52.0",
     "react-router-dom": "^6.22.3",
     "react-spinners": "^0.13.8"
   },
@@ -25,6 +29,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "gh-pages": "^6.1.1",
     "vite": "^5.2.0"
   }
 }

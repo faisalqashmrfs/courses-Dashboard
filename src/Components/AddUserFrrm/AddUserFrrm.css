@@ -1,0 +1,30 @@
+.erroron1
+{
+  width: max-content;
+  margin: 0px auto;
+  padding: 8px 12px;
+  box-shadow: 0 0 5px 1px rgb(255, 0, 0);
+  font-size: 18px;
+  border: 1px solid red;
+  color: red;
+  opacity: 1;
+  transition: .4s;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  transform: translate(-50%);
+}
+.error-off1
+{
+  width: max-content;
+    margin: 0px auto;
+    box-shadow: 0 0 5px 1px rgb(255, 0, 0);
+    font-size: 18px;
+    border: 1px solid red;
+    color: red;
+    opacity: 0;
+    transition: .4s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}

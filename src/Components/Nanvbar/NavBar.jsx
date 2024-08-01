@@ -10,6 +10,7 @@ export default function NavBar({setleave }) {
   {
     setleave(true)
   }
+  
   return (
     <nav className="The-Navbar">
         <div className='side_1'> 

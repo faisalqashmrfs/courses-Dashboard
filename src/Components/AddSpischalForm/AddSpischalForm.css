@@ -18,7 +18,7 @@
 }
 .contant-fq
 {
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,4 +40,62 @@
     position: absolute;
     left:42%;
     top: 34%; 
+}
+.erroron
+{
+    width: max-content;
+    margin: 0px auto;
+    padding: 8px 12px;
+    box-shadow: 0 0 5px 1px rgb(255, 0, 0);
+    font-size: 18px;
+    border: 1px solid red;
+    color: red;
+    opacity: 1;
+    transition: .4s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.error-off
+{
+    width: max-content;
+    margin: 0px auto;
+    box-shadow: 0 0 5px 1px rgb(255, 0, 0);
+    font-size: 18px;
+    border: 1px solid red;
+    color: red;
+    opacity: 0;
+    transition: .4s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.succsses
+{
+    width: max-content;
+    margin: 0px auto;
+    padding: 8px 12px;
+    box-shadow: 0 0 5px 1px rgb(40, 128, 0);
+    font-size: 18px;
+    border: 1px solid rgb(40, 128, 0);
+    color: rgb(40, 128, 0);
+    opacity: 1;
+    transition: .4s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+.succsses-off
+{
+    width: max-content;
+    margin: 0px auto;
+    box-shadow: 0 0 5px 1px rgb(40, 128, 0);
+    font-size: 18px;
+    border: 1px solid rgb(40, 128, 0);
+    color: rgb(40, 128, 0);
+    opacity: 0;
+    transition: .4s;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }

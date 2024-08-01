@@ -4,14 +4,15 @@ import Logein from './Components/Logein/Logein'
 import MainPage from './Components/MainPage/MainPage'
 import UserPage from './Components/UserPage/UserPage'
 import SpecializationsPage from './Components/SpecializationsPage/SpecializationsPage'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AddVideo from './Components/AddVideo/AddVideo'
 import AddUser from './Components/AddUser/AddUser'
 import AddSpischalli from './Components/AddSpischalli/AddSpischalli'
 
 function App() {
 
-  const [ChosingCategory, setChosingCategory] = useState(0)
+  const IdNav = localStorage.getItem('NAVid')
+  const [ChosingCategory, setChosingCategory] = useState(!IdNav ? 0 : IdNav)
 
   return (
     <>

@@ -8,3 +8,13 @@
   list-style: none;
   font-family: "Tajawal", sans-serif;
 }
+input
+{
+  direction: rtl; /* تحديد اتجاه النص إلى اليمين */
+  text-align: start !important;
+}
+input::placeholder
+{
+  text-align: start;
+  direction: rtl; /* تحديد اتجاه النص إلى اليمين */
+}
