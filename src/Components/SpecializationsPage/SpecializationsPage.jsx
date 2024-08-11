@@ -11,6 +11,8 @@ export default function SpecializationsPage({ setChosingCategory, ChosingCategor
     const [loding, setloding] = useState(false)
     const token = localStorage.getItem('token');
     const [leave, setleave] = useState(false)
+    const [Masseg, setMasseg] = useState(false);
+    const [deleteID, setdeleteID] = useState('');
 
     function handelChangCategory(ID) {
         setChosingCategory(ID)
@@ -27,7 +29,7 @@ export default function SpecializationsPage({ setChosingCategory, ChosingCategor
 
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/specializations`,
+        axios.get(`https://platform.focal-x.com/api/specializations`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -42,6 +44,33 @@ export default function SpecializationsPage({ setChosingCategory, ChosingCategor
                 console.error('Error fetching data: ', error);
             });
     }, [token]);
+
+    const [deleted, setDeleted] = useState(false);
+
+    const handleDelete = () => {
+        setMasseg(false);
+        axios.delete(`https://platform.focal-x.com/api/specializations/${deleteID}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
+        })
+            .then(response => {
+                console.log(response);
+                setDeleted(true);
+                // تحديث حالة Data لإزالة العنصر المحذوف
+                setDatas(prevData => prevData.filter(item => item.id !== deleteID));
+            })
+            .catch(error => {
+                console.error(error);
+                // setDatas(prevData => prevData.filter(item => item.id !== deleteID));
+            });
+    };
+
+    function HandelDeletUser(id) {
+        setMasseg(true);
+        setdeleteID(id);
+    }
 
     return (
         <>
@@ -65,7 +94,7 @@ export default function SpecializationsPage({ setChosingCategory, ChosingCategor
                 </div>
                 <div className='FillteringArea'>
                     <button onClick={() => settogle(!togle)} className='FillterButton' ><img className={togle ? "imgDefaulterON" : "imgDefaulter"} src={downArow} alt="downArow" /> ترتيب حسب</button>
-                    <Link to={'./AddSpischalli'}><button className='AddVideo'>إضافة فيديو</button></Link>
+                    <Link to={'./AddSpischalli'}><button className='AddVideo'>إضافة اختصاص</button></Link>
                     <div className={togle ? "FilteringBox" : "FilteringBoxOff"}>
                         <button>تطبيق</button>
                         <select name="" id="">
@@ -73,33 +102,42 @@ export default function SpecializationsPage({ setChosingCategory, ChosingCategor
                         </select>
                     </div>
                 </div>
-                <section className='Vidio-Table-section'>
-                    <ul className='main'>
-                        <li>الإعدادات</li>
-                        <li>صورة الاختصاص</li>
-                        <li>اسم الاختصاص</li>
-                    </ul>
-                    {datas.map((e) => (
-                        <ul className='VideoROW'>
-                            <li className="edit-del">
-                                <button>حذف</button>
-                                <button>تعديل</button>
-                            </li>
-                            <li className="item"><img src={e.image} alt="" /></li>
-                            <li className="item">{e.name}</li>
-                        </ul>
-                    ))}
 
+
+                <section className='Vidio-Table-section'>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-label="الإعدادات">الإعدادات</th>
+                                <th data-label="صورة الاختصاص">صورة الاختصاص</th>
+                                <th data-label="اسم الاختصاص">اسم الاختصاص</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {datas.map((e, index) => (
+                                <tr key={index}>
+                                    <td data-label="الإعدادات">
+                                        <button onClick={() => HandelDeletUser(e.id)}>حذف</button>
+                                        <button>تعديل</button>
+                                    </td>
+                                    <td data-label="البريد الالكتروني"><img src={e.image} alt="" /></td>
+                                    <td data-label="البريد الالكتروني">{e.name}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </section>
             </main>
 
-
-
-
-
-
-
-
+            <section className='DeletingMasseg-box'>
+                <div className={Masseg ? 'DeletingMasseg' : 'DeletingMasseg-off'}>
+                    <h2>Do You Want To Delete This Row</h2>
+                    <div>
+                        <button className='Yes' onClick={handleDelete}>Yes</button>
+                        <button className='No' onClick={() => setMasseg(false)}>No</button>
+                    </div>
+                </div>
+            </section>
             <div className={leave ? 'LeaveFather' : 'LeaveFatherDis'}>
                 <div className={leave ? 'Leave' : 'Leaveoff'}>
                     <h3>هل تريد الخروج؟</h3>

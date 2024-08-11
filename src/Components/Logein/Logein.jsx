@@ -26,7 +26,7 @@ export default function Logein() {
 
     const handleLogin = async () => {
         try {
-          const response = await axios.post('http://127.0.0.1:8000/api/login',
+          const response = await axios.post('https://platform.focal-x.com/api/login',
             { email, password },
             {
               headers: {

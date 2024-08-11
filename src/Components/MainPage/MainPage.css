@@ -362,7 +362,152 @@
     background: rgba(255, 133, 0, 1);
     cursor: pointer;
 }
-
+/* ضبط تنسيقات الجدول الأساسية */
+.Vidio-Table-section {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .Vidio-Table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .Vidio-Table-section th, .Vidio-Table-section td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .Vidio-Table-section th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .Vidio-Table-section tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* تنسيقات الأزرار */
+  .Vidio-Table-section button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: rgba(255, 133, 0, 1);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .Vidio-Table-section button:hover {
+    background-color: rgb(228, 175, 0);
+  }
+  .Vidio-Table-section img {
+    width: 400px;
+  }
+  
+  /* تحسين التفاعل مع الشاشات الصغيرة */
+  @media (max-width: 768px) {
+    .Vidio-Table-section table, .Vidio-Table-section thead, .Vidio-Table-section tbody, .Vidio-Table-section th, .Vidio-Table-section td, .Vidio-Table-section tr {
+      display: block;
+    }
+  
+    .Vidio-Table-section tr {
+      margin-bottom: 15px;
+    }
+  
+    .Vidio-Table-section th, .Vidio-Table-section td {
+      padding: 10px;
+      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .Vidio-Table-section th::before {
+      content: attr(data-label);
+      font-weight: bold;
+    }
+  
+    .Vidio-Table-section td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  }
+  .DeletingMasseg 
+{
+    width: 500px;
+    height: 200px;
+    border: 1px solid #FF8500;
+    border-radius: 8px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .2s;
+    background-color: #fff;
+    text-align: center;
+}
+.DeletingMasseg-off
+{
+    width: 100px;
+    height: 200px;
+    border: 1px solid #FF8500;
+    border-radius: 8px;
+    position: absolute;
+    top: -1000;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .2s;
+    text-align: center;
+    opacity: 0;
+    background-color: #fff;
+}
+.DeletingMasseg-box h2
+{
+    margin: 40px;
+}
+.DeletingMasseg-box div .Yes
+{
+    width: 120px;
+    height: 50px;
+    font-size: 22px;
+    background-color: #fff;
+    color: #FF8500;
+    border: 1px solid #FF8500;
+    border-radius: 8px;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+.DeletingMasseg-box div .Yes:hover
+{
+    transition: .2s;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+}
+.DeletingMasseg-box div .No
+{
+    width: 120px;
+    height: 50px;
+    font-size: 22px;
+    background-color: #FF8500;
+    color: #fff;
+    border: 1px solid #FF8500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+.DeletingMasseg-box div .No:hover
+{
+    transition: .2s;
+    background-color: green;
+    color: #fff;
+    border: none;
+}
 
 
 

@@ -33,7 +33,7 @@ export default function AddSpischalForm() {
     const [datav, setDatav] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/version`,
+        axios.get(`https://platform.focal-x.com/api/version`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -69,7 +69,7 @@ export default function AddSpischalForm() {
         formData.append('name', names);
         
         try {
-          const response = await axios.post('http://127.0.0.1:8000/api/specializations', formData, {
+          const response = await axios.post('https://platform.focal-x.com/api/specializations', formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               'Authorization': `Bearer ${token}`
@@ -83,7 +83,6 @@ export default function AddSpischalForm() {
           console.log('Response:', response);
         } catch (error) {
           setStatus(`Error: ${error.response.data.message}`);
-          console.error('Error:', error.response.data.message);
         }
       };
 
@@ -107,7 +106,7 @@ export default function AddSpischalForm() {
     
     //     console.log(formData,faile,names);
     //     try {
-    //     //   const response = await axios.post('http://127.0.0.1:8000/api/specializations', formData, { headers });
+    //     //   const response = await axios.post('https://platform.focal-x.com/api/specializations', formData, { headers });
     //     //   console.log('Response:', response.data);
     //     } catch (error) {
     //       console.error('There was an error!', error);

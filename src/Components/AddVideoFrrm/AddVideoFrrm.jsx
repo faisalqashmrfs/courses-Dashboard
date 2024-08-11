@@ -22,11 +22,11 @@ export default function AddVideoFrrm() {
   const [number, setnumber] = useState('')
   const [dates, setdates] = useState('')
 
-  
+
   const [datav, setDatav] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/version`,
+    axios.get(`https://platform.focal-x.com/api/version`,
       {
         headers: {
           'Accept': 'application/json',
@@ -42,9 +42,18 @@ export default function AddVideoFrrm() {
   }, [token]);
 
   const [datas, setDatas] = useState([]);
+  const [status, setStatus] = useState('');
+  const [status1, setStatus1] = useState('');
+  const [status2, setStatus2] = useState('');
+  const [status3, setStatus3] = useState('');
+  const [status4, setStatus4] = useState('');
+  const [status5, setStatus5] = useState('');
+  const [status6, setStatus6] = useState('');
+  const [status7, setStatus7] = useState('');
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/specializations`,
+
+    axios.get(`https://platform.focal-x.com/api/specializations`,
       {
         headers: {
           'Accept': 'application/json',
@@ -53,7 +62,6 @@ export default function AddVideoFrrm() {
       })
       .then(response => {
         setDatas(response.data.data);
-        console.log(response.data.data);
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
@@ -61,7 +69,19 @@ export default function AddVideoFrrm() {
   }, [token]);
 
   const handleSubmit = async () => {
-    const url = 'http://127.0.0.1:8000/api/video';
+
+    if (!title) setStatus('! هذا الحقل مطلوب')
+    if (!description) setStatus1('! هذا الحقل مطلوب')
+    if (!path) setStatus2('! هذا الحقل مطلوب')
+    if (!specialization_id) setStatus3('! هذا الحقل مطلوب')
+    if (!version_id) setStatus4('! هذا الحقل مطلوب')
+    if (!number) setStatus5('! هذا الحقل مطلوب')
+    if (!dates) setStatus6('! هذا الحقل مطلوب')
+
+    if (!title || !description || !path || !specialization_id || !version_id || !number || !dates) {
+      return
+    }
+    const url = 'https://platform.focal-x.com/api/video';
 
     const data = {
       version_id: version_id,
@@ -81,7 +101,10 @@ export default function AddVideoFrrm() {
 
     try {
       const response = await axios.post(url, data, { headers });
-      // console.log(response.data);
+      if (response.status == 200 || response.status == 201) {
+        setStatus7('Created successfully');
+      }
+      console.log(response.data);
     } catch (error) {
       console.error('There was an error!', error);
     }
@@ -95,37 +118,54 @@ export default function AddVideoFrrm() {
     >
       <h3>إضافة فيديو</h3>
       <form>
-        <input type="text" placeholder='عنوان الجلسة' onChange={(e) => settitle(e.target.value)} />
         <div>
-          <input type="number" placeholder='رقم الجلسة' onChange={(e) => setnumber(e.target.value)} />
+          {<p className={!status == '' ? 'erroron1' : 'error-off1'}>{status}</p>}
+          <input type="text" placeholder='عنوان الجلسة' onChange={(e) => (settitle(e.target.value), setStatus(""))} />
         </div>
         <div>
-          <input type="date" placeholder='تاريخ الجلسة' onChange={(e) => setdates(e.target.value)} />
+          {<p className={!status5 == '' ? 'erroron1' : 'error-off1'}>{status5}</p>}
+          <input type="number" placeholder='رقم الجلسة' onChange={(e) => (setnumber(e.target.value), setStatus5(""))} />
         </div>
-        <input type="text" placeholder='وصف الجلسة' onChange={(e) => setdescription(e.target.value)} />
-        <input type="text" placeholder='رابط الجلسة' onChange={(e) => setpath(e.target.value)} />
-
-        <select name="" id="" onChange={(event) => setspecialization_id(event.target.value)} >
-          <option value="">الاختصاصات</option>
-          {
-            datas.map((e, index) => (
+        <div>
+          {<p className={!status6 == '' ? 'erroron1' : 'error-off1'}>{status6}</p>}
+          <input type="date" placeholder='تاريخ الجلسة' onChange={(e) => (setdates(e.target.value), setStatus6(""))} />
+        </div>
+        <div>
+          {<p className={!status1 == '' ? 'erroron1' : 'error-off1'}>{status1}</p>}
+          <input type="text" placeholder='وصف الجلسة' onChange={(e) => (setdescription(e.target.value), setStatus1(""))} />
+        </div>
+        <div>
+          {<p className={!status2 == '' ? 'erroron1' : 'error-off1'}>{status2}</p>}
+          <input type="text" placeholder='رابط الجلسة' onChange={(e) => (setpath(e.target.value), setStatus2(""))} />
+        </div>
+        <div>
+          {<p className={!status3 == '' ? 'erroron1' : 'error-off1'}>{status3}</p>}
+          <select name="" id="" onChange={(event) => (setspecialization_id(event.target.value), setStatus3(""))} >
+            <option value="">الاختصاصات</option>
+            {
+              datas.map((e, index) => (
+                <option key={index} value={e.id}>{e.name}</option>
+              ))
+            }
+          </select>
+        </div>
+        <div>
+          {<p className={!status4 == '' ? 'erroron1' : 'error-off1'}>{status4}</p>}
+          <select name="" id="" onChange={(event) => (setversion_id(event.target.value), setStatus4(""))} >
+            <option value="">رقم الدفعة</option>
+            {datav.map((e, index) => (
               <option key={index} value={e.id}>{e.name}</option>
-            ))
-          }
-        </select>
-        <select name="" id="" onChange={(event) => setversion_id(event.target.value)} >
-          <option value="">رقم الدفعة</option>
-          {datav.map((e, index) => (
-            <option key={index} value={e.id}>{e.name}</option>
-          ))}
-        </select>
+            ))}
+          </select>
+        </div>
       </form>
       <div className='AddVideoButtons'>
         <Link to={'/MainPage'}>
           <button className='cancel'>إلغاء</button>
         </Link>
+        {<p className={!status7 == '' ? 'succsses' : 'succsses-off'}>{status7}</p>}
         <button
-          className='AddVideo'onClick={handleSubmit}>إضافة فيديو</button>
+          className='AddVideo' onClick={handleSubmit}>إضافة فيديو</button>
       </div>
     </section>
   )

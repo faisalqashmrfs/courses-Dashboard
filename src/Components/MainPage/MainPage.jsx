@@ -19,10 +19,17 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
 
     const [error, setError] = useState('');
 
-    const [datav, setDatav] = useState([]);
+    
 
+    const [deleted, setDeleted] = useState(false);
+    const [deleteID, setdeleteID] = useState('');
+    const [Masseg, setMasseg] = useState(false);
+
+    
+    const [datav, setDatav] = useState([]);
+    
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/version`,
+        axios.get(`https://platform.focal-x.com/api/version`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -40,7 +47,7 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
     const [datas, setDatas] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/specializations`,
+        axios.get(`https://platform.focal-x.com/api/specializations`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -58,7 +65,7 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/logout',
+            const response = await axios.post('https://platform.focal-x.com/api/logout',
                 {},
                 {
                     headers: {
@@ -81,19 +88,18 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
 
     function handelChangCategory(ID) {
         setChosingCategory(ID)
-        localStorage.setItem('NAVid',ID)
+        localStorage.setItem('NAVid', ID)
     }
 
     const [togle, settogle] = useState(false)
 
     const [data, setData] = useState([]);
 
-    const [ V , setV] = useState('')
-    const [ S , setS] = useState('')
+    const [V, setV] = useState('')
+    const [S, setS] = useState('')
 
-    console.log(S);
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/video${V == '' ? '' : `?version=${V}&`}${S && V ? '&' : ''}${S == '' ? '' : `specialization=${S}`}`,
+        axios.get(`https://platform.focal-x.com/api/video${V == '' ? '' : `?version=${V}&`}${S && V ? '&' : ''}${S == '' ? '' : `specialization=${S}`}`,
             {
                 headers: {
                     'Accept': 'application/json',
@@ -102,15 +108,42 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
             })
             .then(response => {
                 setData(response.data.data);
+                console.log(response.data.data);
+
             })
             .catch(error => {
                 console.error('Error fetching data: ', error);
             });
-    }, [V , token , S]);
+    }, [V, token, S , deleteID]);
 
     function handelLeaving() {
         setleave(!leave)
         setloding(false)
+    }
+
+    const handleDelete = () => {
+        setMasseg(false);
+        axios.delete(`https://platform.focal-x.com/api/video/${deleteID}`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
+        })
+            .then(response => {
+                console.log(response);
+                setDeleted(true);
+                // تحديث حالة Data لإزالة العنصر المحذوف
+                setData(prevData => prevData.filter(item => item.id !== deleteID));
+            })
+            .catch(error => {
+                console.error(error);
+                // setData(prevData => prevData.filter(item => item.id !== deleteID));
+            });
+    };
+
+    function HandelDeletUser(id) {
+          setMasseg(true);
+        setdeleteID(id);
     }
 
     return (
@@ -145,16 +178,16 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
                             <option value="">من</option>
                         </select>
                         <p>التاريخ</p>
-                        <select name="" id="" onChange={ (event) => setV(event.target.value)} >
+                        <select name="" id="" onChange={(event) => setV(event.target.value)} >
                             <option value="">رقم الدفعة</option>
-                            {datav.map(( e , index ) => (
+                            {datav.map((e, index) => (
                                 <option key={index} value={e.id}>{e.name}</option>
                             ))}
                         </select>
-                        <select name="" id="" onChange={ (event) => setS(event.target.value)} >
+                        <select name="" id="" onChange={(event) => setS(event.target.value)} >
                             <option value="">الاختصاصات</option>
                             {
-                                datas.map(( e , index )=>(
+                                datas.map((e, index) => (
                                     <option key={index} value={e.id}>{e.name}</option>
                                 ))
                             }
@@ -162,34 +195,47 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
                     </div>
                 </div>
                 <section className='Vidio-Table-section'>
-                    <ul className='main'>
-                        <li>الإعدادات</li>
-                        <li>رقم الدفعة</li>
-                        <li>الاختصاص</li>
-                        <li>رابط الجلسة</li>
-                        <li>تاريخ الجلسة</li>
-                        <li>رقم الجلسة</li>
-                        <li>عنوان الجلسة</li>
-                    </ul>
-                    {
-                        data.map((e , index) => (
-                            <ul className='VideoROW' key={index}>
-                                <li className="edit-del">
-                                    <button>حذف</button>
-                                    <button>تعديل</button>
-                                </li>
-                                <li className="item">{e.version_id}</li>
-                                <li className="item">{e.specialization_id}</li>
-                                <li className="item">{e.path}</li>
-                                <li className="item">{e.date}</li>
-                                <li className="item">{e.number}</li>
-                                <li className="item">{e.title.split(' ').slice(0, 5).join(' ')}</li>
-                            </ul>
-                        ))
-                    }
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-label="الإعدادات">الإعدادات</th>
+                                <th data-label="رقم الدفعة">رقم الدفعة</th>
+                                <th data-label="الاختصاص">الاختصاص</th>
+                                <th data-label="رابط الجلسة">رابط الجلسة</th>
+                                <th data-label="تاريخ الجلسة">تاريخ الجلسة</th>
+                                <th data-label="رقم الجلسة">رقم الجلسة</th>
+                                <th data-label="عنوان الجلسة">عنوان الجلسة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.map((e, index) => (
+                                <tr key={index}>
+                                    <td data-label="الإعدادات">
+                                        <button onClick={() => HandelDeletUser(e.id)}>حذف</button>
+                                        <Link to={`/MainPage/EditVideo/${e.id}`}><button >تعديل</button></Link>
+                                        
+                                    </td>
+                                    <td data-label="رقم الدفعة">{e.version_id}</td>
+                                    <td data-label="الاختصاص">{e.specialization_id}</td>
+                                    <td data-label="رابط الجلسة">{e.path}</td>
+                                    <td data-label="تاريخ الجلسة">{e.date}</td>
+                                    <td data-label="رقم الجلسة">{e.number}</td>
+                                    <td data-label="عنوان الجلسة">{e.title.split(' ').slice(0, 5).join(' ')}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </section>
             </main>
-
+            <section className='DeletingMasseg-box'>
+                <div className={Masseg ? 'DeletingMasseg' : 'DeletingMasseg-off'}>
+                    <h2>Do You Want To Delete This Row</h2>
+                    <div>
+                        <button className='Yes' onClick={handleDelete}>Yes</button>
+                        <button className='No' onClick={() => setMasseg(false)}>No</button>
+                    </div>
+                </div>
+            </section>
             <div className={leave ? 'LeaveFather' : 'LeaveFatherDis'}>
                 <div className={leave ? 'Leave' : 'Leaveoff'}>
                     <h3>هل تريد الخروج؟</h3>

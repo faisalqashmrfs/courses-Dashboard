@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react'
 import AddVideo from './Components/AddVideo/AddVideo'
 import AddUser from './Components/AddUser/AddUser'
 import AddSpischalli from './Components/AddSpischalli/AddSpischalli'
+import EditVideo from './Components/EditVideo/EditVideo'
+import EditUser from './Components/EditUser/EditUser'
 
 function App() {
 
@@ -20,8 +22,10 @@ function App() {
       <Route path='/' element={<Logein />}/>
       <Route path='/MainPage' element={<MainPage setChosingCategory={setChosingCategory} ChosingCategory={ChosingCategory}/>}/>
       <Route path='/MainPage/addVideo' element={<AddVideo />}/>
+      <Route path='/MainPage/EditVideo/:id' element={<EditVideo />}/>
       <Route path='/UserPage' element={<UserPage setChosingCategory={setChosingCategory} ChosingCategory={ChosingCategory}/>}/>
       <Route path='/UserPage/AddUser' element={<AddUser />}/>
+      <Route path='/UserPage/EditUser/:id' element={<EditUser />}/>
       <Route path='/SpecializationsPage' element={<SpecializationsPage setChosingCategory={setChosingCategory} ChosingCategory={ChosingCategory}/>}/>
       <Route path='/SpecializationsPage/AddSpischalli' element={<AddSpischalli />}/>
     </Routes>
