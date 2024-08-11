@@ -128,7 +128,7 @@ export default function EditVideo() {
             title: title,
             description: description,
             number: number,
-            dates: dates,
+            date: dates,
         };
 
         console.log(data);
@@ -225,7 +225,7 @@ export default function EditVideo() {
                 </Link>
                 {<p className={!status7 == '' ? 'succsses' : 'succsses-off'}>{status7}</p>}
                 <button
-                    className='AddVideo' onClick={handleSubmit}>إضافة فيديو</button>
+                    className='AddVideo' onClick={handleSubmit}>تعديل فيديو</button>
             </div>
         </section>
     )

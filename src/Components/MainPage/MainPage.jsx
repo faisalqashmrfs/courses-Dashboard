@@ -137,7 +137,7 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
             })
             .catch(error => {
                 console.error(error);
-                // setData(prevData => prevData.filter(item => item.id !== deleteID));
+                setData(prevData => prevData.filter(item => item.id !== deleteID));
             });
     };
 
@@ -208,7 +208,7 @@ export default function MainPage({ setChosingCategory, ChosingCategory }) {
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((e, index) => (
+                            {data.slice().reverse().map((e, index) => (
                                 <tr key={index}>
                                     <td data-label="الإعدادات">
                                         <button onClick={() => HandelDeletUser(e.id)}>حذف</button>

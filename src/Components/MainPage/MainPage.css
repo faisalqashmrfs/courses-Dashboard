@@ -442,7 +442,7 @@
     height: 200px;
     border: 1px solid #FF8500;
     border-radius: 8px;
-    position: absolute;
+    position: fixed;
     top: 30%;
     left: 50%;
     transform: translateX(-50%);

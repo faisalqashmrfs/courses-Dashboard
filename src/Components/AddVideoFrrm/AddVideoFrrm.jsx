@@ -90,7 +90,7 @@ export default function AddVideoFrrm() {
       title: title,
       description: description,
       number: number,
-      dates: dates,
+      date: dates,
     };
 
     console.log(data);
