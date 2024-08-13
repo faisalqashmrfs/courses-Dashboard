@@ -213,10 +213,14 @@ export default function AddUserFrrm() {
               ))}
             </select>
             {errors.versions[index]?.specialization_id && <p style={{ color: 'red' }}>{errors.versions[index].specialization_id}</p>}
-            <button type="button" onClick={() => handleRemoveFields(index)}>Remove</button>
+            <button style={{backgroundColor:'red',color:'white', border:'none',padding : '6px 12px'
+      , fontSize:"16px" , margin : '5px 0', cursor:'pointer'
+    }}  type="button" onClick={() => handleRemoveFields(index)}>Remove</button>
           </div>
         ))}
-        <button type="button" onClick={handleAddFields}>Add More</button>
+        <button type="button" onClick={handleAddFields} style={{backgroundColor:'green',color:'white', border:'none',padding : '6px 12px'
+      , fontSize:"16px" , margin : '5px 0' , cursor:'pointer'
+    }} >Add More</button>
         <div className='AddVideoButtons'>
           <Link to={'/UserPage'}>
             <button className='cancel'>إلغاء</button>
