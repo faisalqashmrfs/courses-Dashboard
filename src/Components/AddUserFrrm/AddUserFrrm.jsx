@@ -207,7 +207,7 @@ export default function AddUserFrrm() {
               onChange={(event) => handleChange(index, event)}
               style={{ borderColor: errors.versions[index]?.specialization_id ? 'red' : '' }}
             >
-              <option value="">اختر رقم الاختصاص</option>
+              <option value="">اختر الاختصاص</option>
               {datas.map((option) => (
                 <option key={option.id} value={option.id}>{option.name}</option>
               ))}

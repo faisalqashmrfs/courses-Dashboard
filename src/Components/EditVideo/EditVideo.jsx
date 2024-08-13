@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import FocalX from './../../assets/Images/FocalX.png';
-import back from './../../assets/Images/back.png';
+import back from './../../assets/Images/backkk.svg';
 
 export default function EditVideo() {
     const token = localStorage.getItem('token');

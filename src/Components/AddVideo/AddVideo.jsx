@@ -1,7 +1,7 @@
 import './AddVideo.css'
 import { Link } from 'react-router-dom'
 import FocalX from './../../assets/Images/FocalX.png';
-import back from './../../assets/Images/back.png';
+import back from './../../assets/Images/backkk.svg';
 import AddVideoFrrm from '../AddVideoFrrm/AddVideoFrrm';
 
 export default function AddVideo() {

@@ -86,52 +86,12 @@ export default function AddSpischalForm() {
         }
       };
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-
-    //     if (!faile) {
-    //         setStatus('Please select a file first.');
-    //         return;
-    //       }
-
-    //     const formData = new FormData();
-    //     formData.append('image', faile);
-    //     formData.append('name', names);
-
-    //     const headers = {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'multipart/form-data',
-    //       'Authorization': `Bearer ${token}`
-    //     };
-    
-    //     console.log(formData,faile,names);
-    //     try {
-    //     //   const response = await axios.post('https://platform.focal-x.com/api/specializations', formData, { headers });
-    //     //   console.log('Response:', response.data);
-    //     } catch (error) {
-    //       console.error('There was an error!', error);
-    //     }
-    //   };
-
     return (
         <section className='AddVideoFrrm'
         >
-            <h3>إضافة اختصتص</h3>
+            <h3>إضافة اختصاص</h3>
             <form>
                 <input type="text" placeholder='اسم الاختصاص' onChange={ (e) => HandelChangenames(e) }/>
-                {/* <div>
-                    <select name="" id="" >
-                        <option value="">رقم الدفعة</option>
-                        {datav.map((option) => (
-                            <option key={option.id} value={option.id}>{option.name}</option>
-                        ))}
-                    </select>
-                    <img
-                        className='Normal'
-                        src={downArow}
-                        alt=""
-                    />
-                </div> */}
             </form>
             <div className='Upload-Area'>
                 <img src={Upload} alt="Upload photo" />

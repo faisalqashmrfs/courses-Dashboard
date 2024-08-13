@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import FocalX from './../../assets/Images/FocalX.png';
-import back from './../../assets/Images/back.png';
+import back from './../../assets/Images/backkk.svg';
 import AddSpischalForm from '../AddSpischalForm/AddSpischalForm';
 
 export default function AddSpischalli() {

@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import FocalX from './../../assets/Images/FocalX.png';
-import back from './../../assets/Images/back.png';
+import back from './../../assets/Images/backkk.svg';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -263,7 +263,7 @@ useEffect(() => {
       onChange={(event) => handleChange(index, event)}
       style={{ borderColor: errors.versions[index]?.specialization_id ? 'red' : '' }}
     >
-      <option value="">اختر رقم الاختصاص</option>
+      <option value="">اختر الاختصاص</option>
       {datas.map((option) => (
         <option key={option.id} value={option.id}>{option.name}</option>
       ))}

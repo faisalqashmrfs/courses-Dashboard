@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import FocalX from './../../assets/Images/FocalX.png';
-import back from './../../assets/Images/back.png';
+import back from './../../assets/Images/backkk.svg';
 import AddUserFrrm from '../AddUserFrrm/AddUserFrrm';
 
 export default function AddUser() {
