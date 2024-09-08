@@ -71,14 +71,13 @@ export default function AddVideoFrrm() {
   const handleSubmit = async () => {
 
     if (!title) setStatus('! هذا الحقل مطلوب')
-    if (!description) setStatus1('! هذا الحقل مطلوب')
     if (!path) setStatus2('! هذا الحقل مطلوب')
     if (!specialization_id) setStatus3('! هذا الحقل مطلوب')
     if (!version_id) setStatus4('! هذا الحقل مطلوب')
     if (!number) setStatus5('! هذا الحقل مطلوب')
     if (!dates) setStatus6('! هذا الحقل مطلوب')
 
-    if (!title || !description || !path || !specialization_id || !version_id || !number || !dates) {
+    if (!title || !path || !specialization_id || !version_id || !number || !dates) {
       return
     }
     const url = 'https://platform.focal-x.com/api/video';
@@ -88,7 +87,7 @@ export default function AddVideoFrrm() {
       specialization_id: specialization_id,
       path: path,
       title: title,
-      description: description,
+      description: description ? description : 'no description',
       number: number,
       date: dates,
     };

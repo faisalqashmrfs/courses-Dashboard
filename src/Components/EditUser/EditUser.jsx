@@ -222,7 +222,7 @@ useEffect(() => {
           <div>
             {<p className={!status1 == '' ? 'erroron1' : 'error-off1'}>{status1}</p>}
             <input
-              type="email"
+              type="text"
               name="email"
               placeholder="Email"
               value={email}
